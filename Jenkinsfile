@@ -5,15 +5,17 @@ pipeline {
         stage('Code') {
             steps {
                 echo '📥 Cloning repo...'
-                git 'https://github.com/Parvane-gith/jenkins-static-site.git'
+                git branch: 'main', url: 'https://github.com/Parvane-gith/jenkins-static-site.git'
             }
         }
+
         stage('Build') {
             steps {
                 echo '🔧 Listing project files...'
                 sh 'ls -la'
             }
         }
+
         stage('Deploy') {
             steps {
                 echo '🚀 Previewing index.html'
